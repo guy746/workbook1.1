@@ -29,6 +29,7 @@ class WorkbooksController < ApplicationController
   # POST /workbooks.json
   def create
     @workbook = Workbook.new(workbook_params)
+    @workbook.user = current_user
 
     respond_to do |format|
       if @workbook.save
