@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @workbook.title %>
+</p>
+
+<p>
+  <strong>Clientid:</strong>
+  <%= @workbook.clientid %>
+</p>
+
+<p>
+  <strong>Memberid:</strong>
+  <%= @workbook.memberid %>
+</p>
+
+<p>
+  <strong>Formid:</strong>
+  <%= @workbook.formid %>
+</p>
+
+<p>
+  <strong>Formver:</strong>
+  <%= @workbook.formver %>
+</p>
+
+<p>
+  <strong>Q001section:</strong>
+  <%= @workbook.q001section %>
+</p>
+
+<p>
+  <strong>Q001qlong:</strong>
+  <%= @workbook.q001qlong %>
+</p>
+
+<p>
+  <strong>Q001qshort:</strong>
+  <%= @workbook.q001qshort %>
+</p>
+
+<p>
+  <strong>Q001qatext:</strong>
+  <%= @workbook.q001qatext %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @workbook.user %>
+</p>
+
+<%= link_to 'Edit', edit_workbook_path(@workbook) %> |
+<%= link_to 'Back', workbooks_path %>

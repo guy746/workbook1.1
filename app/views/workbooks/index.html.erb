@@ -1,0 +1,43 @@
+<h1>Listing workbooks</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Clientid</th>
+      <th>Memberid</th>
+      <th>Formid</th>
+      <th>Formver</th>
+      <th>Q001section</th>
+      <th>Q001qlong</th>
+      <th>Q001qshort</th>
+      <th>Q001qatext</th>
+      <th>User</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @workbooks.each do |workbook| %>
+      <tr>
+        <td><%= workbook.title %></td>
+        <td><%= workbook.clientid %></td>
+        <td><%= workbook.memberid %></td>
+        <td><%= workbook.formid %></td>
+        <td><%= workbook.formver %></td>
+        <td><%= workbook.q001section %></td>
+        <td><%= workbook.q001qlong %></td>
+        <td><%= workbook.q001qshort %></td>
+        <td><%= workbook.q001qatext %></td>
+        <td><%= workbook.user %></td>
+        <td><%= link_to 'Show', workbook %></td>
+        <td><%= link_to 'Edit', edit_workbook_path(workbook) %></td>
+        <td><%= link_to 'Destroy', workbook, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Workbook', new_workbook_path %>
