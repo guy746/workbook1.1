@@ -1,54 +1,40 @@
-<p id="notice"><%= notice %></p>
+<%- model_class = Workbook -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => Workbook %></h1>
+</div>
 
-<p>
-  <strong>Title:</strong>
-  <%= @workbook.title %>
-</p>
+<div class="fieldset">
+  <dl>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:title) %></dt>
+      <dd><pre class="prettyprint"><%= @workbook.title %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:clientid) %></dt>
+      <dd><pre class="prettyprint"><%= @workbook.clientid %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:memberid) %></dt>
+      <dd><pre class="prettyprint"><%= @workbook.memberid %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:formid) %></dt>
+      <dd><pre class="prettyprint"><%= @workbook.formid %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:formver) %></dt>
+      <dd><pre class="prettyprint"><%= @workbook.formver %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:q001section) %></dt>
+      <dd><pre class="prettyprint"><%= @workbook.q001section %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:q001qlong) %></dt>
+      <dd><pre class="prettyprint"><%= @workbook.q001qlong %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:q001qshort) %></dt>
+      <dd><pre class="prettyprint"><%= @workbook.q001qshort %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:q001qatext) %></dt>
+      <dd><pre class="prettyprint"><%= @workbook.q001qatext %></pre></dd>
+  </dl>
+</div>
 
-<p>
-  <strong>Clientid:</strong>
-  <%= @workbook.clientid %>
-</p>
+<div class="form-group">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              workbooks_path, :class => 'btn btn-default'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_workbook_path(@workbook), :class => 'btn btn-default' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              workbook_path(@workbook),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+</div>
 
-<p>
-  <strong>Memberid:</strong>
-  <%= @workbook.memberid %>
-</p>
-
-<p>
-  <strong>Formid:</strong>
-  <%= @workbook.formid %>
-</p>
-
-<p>
-  <strong>Formver:</strong>
-  <%= @workbook.formver %>
-</p>
-
-<p>
-  <strong>Q001section:</strong>
-  <%= @workbook.q001section %>
-</p>
-
-<p>
-  <strong>Q001qlong:</strong>
-  <%= @workbook.q001qlong %>
-</p>
-
-<p>
-  <strong>Q001qshort:</strong>
-  <%= @workbook.q001qshort %>
-</p>
-
-<p>
-  <strong>Q001qatext:</strong>
-  <%= @workbook.q001qatext %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @workbook.user %>
-</p>
-
-<%= link_to 'Edit', edit_workbook_path(@workbook) %> |
-<%= link_to 'Back', workbooks_path %>

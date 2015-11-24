@@ -1,20 +1,64 @@
-<%= simple_form_for(@workbook) do |f| %>
-  <%= f.error_notification %>
-
-  <div class="form-inputs">
-    <%= f.input :title %>
-    <%= f.input :clientid %>
-    <%= f.input :memberid %>
-    <%= f.input :formid %>
-    <%= f.input :formver %>
-    <%= f.input :q001section %>
-    <%= f.input :q001qlong %>
-    <%= f.input :q001qshort %>
-    <%= f.input :q001qatext %>
-    <%= f.association :user %>
+<%= form_for @workbook, :html => { :class => 'form-horizontal form-model' } do |f| %>
+  <div class="form-group">
+    <%= f.label :title, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_area :title, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :clientid, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_area :clientid, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :memberid, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_area :memberid, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :formid, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :formid, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :formver, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :formver, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :q001section, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :q001section, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :q001qlong, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_area :q001qlong, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :q001qshort, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_area :q001qshort, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :q001qatext, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_area :q001qatext, :class => 'text-field form-control' %>
+    </div>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
+  <div class="form-group">
+    <div class='col-md-offset-2 col-md-10'>
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                  workbooks_path, :class => 'btn btn-default' %>
+    </div>
   </div>
 <% end %>

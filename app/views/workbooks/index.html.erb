@@ -1,25 +1,28 @@
-<h1>Listing workbooks</h1>
-
-<table>
+<%- model_class = Workbook -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => Workbook %></h1>
+</div>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>Title</th>
-      <th>Clientid</th>
-      <th>Memberid</th>
-      <th>Formid</th>
-      <th>Formver</th>
-      <th>Q001section</th>
-      <th>Q001qlong</th>
-      <th>Q001qshort</th>
-      <th>Q001qatext</th>
-      <th>User</th>
-      <th colspan="3"></th>
+      <th>ID</th>
+      <th><%= model_class.human_attribute_name(:title) %></th>
+      <th><%= model_class.human_attribute_name(:clientid) %></th>
+      <th><%= model_class.human_attribute_name(:memberid) %></th>
+      <th><%= model_class.human_attribute_name(:formid) %></th>
+      <th><%= model_class.human_attribute_name(:formver) %></th>
+      <th><%= model_class.human_attribute_name(:q001section) %></th>
+      <th><%= model_class.human_attribute_name(:q001qlong) %></th>
+      <th><%= model_class.human_attribute_name(:q001qshort) %></th>
+      <th><%= model_class.human_attribute_name(:q001qatext) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
-
   <tbody>
     <% @workbooks.each do |workbook| %>
       <tr>
+        <td><%= workbook.id %></td>
         <td><%= workbook.title %></td>
         <td><%= workbook.clientid %></td>
         <td><%= workbook.memberid %></td>
@@ -29,15 +32,21 @@
         <td><%= workbook.q001qlong %></td>
         <td><%= workbook.q001qshort %></td>
         <td><%= workbook.q001qatext %></td>
-        <td><%= workbook.user %></td>
-        <td><%= link_to 'Show', workbook %></td>
-        <td><%= link_to 'Edit', edit_workbook_path(workbook) %></td>
-        <td><%= link_to 'Destroy', workbook, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%=l workbook.created_at, format: :long %></td>
+        <td>
+          <%= link_to workbook_path(workbook), :class => 'btn btn-xs', :title => "#{ t('.show', :default => t('helpers.links.show')) }" do %>
+            <%= glyph 'info-sign' %>
+            <%= glyph 'pencil' %>
+          <%- end -%>
+          <%= link_to workbook_path(workbook), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-xs', :title => "#{ t('.destroy', :default => t('helpers.links.destroy')) }" do %>
+            <%= glyph 'remove' %>
+          <%- end -%>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Workbook', new_workbook_path %>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_workbook_path,
+            :class => 'btn btn-primary' %>
